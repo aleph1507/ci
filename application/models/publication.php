@@ -1,6 +1,9 @@
 <?php
 
-	class Publication extends CI_Model {
+	class Publication extends MY_Model {
+
+		const DB_TABLE = 'publications';
+		const DB_TABLE_PK = 'publication_id';
 
 		// @ var int
 		// publication unique identifier

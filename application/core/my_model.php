@@ -7,7 +7,7 @@
 		 // create record
 		 private function insert() {
 		 	$this->db->insert($this::DB_TABLE, $this);
-		 	$this->($this::DB_TABLE_PK) = $this->db->insert_id();
+		 	$this->{$this::DB_TABLE_PK} = $this->db->insert_id();
 		 }
 
 		 // update record
@@ -27,7 +27,7 @@
 		 // public function load from db 
 		 // @param int $id
 		 public function load($id){
-		 	$query = $this->db->get_where($this::DB_TABLE, array($this::DB_TABLE_PK =>id));
+		 	$query = $this->db->get_where($this::DB_TABLE, array($this::DB_TABLE_PK => $id));
 		 	$this->populate($query->row());
 		 }
 
@@ -35,12 +35,12 @@
 		// delete record
 		 public function delete(){
 		 	$this->db->delete($this::DB_TABLE, array($this::DB_TABLE_PK => $this));
-		 	unset($this->($this::DB_TABLE_PK));
+		 	unset($this->{$this::DB_TABLE_PK});
 		 }
 
 		 // save the record
 		 public function save() {
-		 	if(isset($this->($this::DB_TABLE_PK)))	{
+		 	if(isset($this->{$this::DB_TABLE_PK}))	{
 		 		$this->update();
 		 	} else {
 		 		$this->insert();

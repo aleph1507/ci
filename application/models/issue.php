@@ -1,6 +1,10 @@
 <?php
 
-	class Issue extends CI_Model {
+	class Issue extends MY_Model {
+
+		const DB_TABLE = 'issues';
+		const DB_TABLE_PK = 'issue_id';
+		
 		// @var int
 		// issue unique identifier
 		public $issue_id;
